@@ -1,0 +1,6 @@
+class: House
+table: house
+fields:
+  name: String
+  adress: String
+  capacity: int

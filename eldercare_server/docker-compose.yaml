@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+  postgres:
+    image: postgres:14.1
+    ports:
+      - '8090:5432'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: eldercare
+      POSTGRES_PASSWORD: "KzVPkuQcSfMDkFHr-mJDcFWe2cwg0z4V"
+    volumes:
+      - eldercare_data:/var/lib/postgresql/data
+  redis:
+    image: redis:6.2.6
+    ports:
+      - '8091:6379'
+    command: redis-server --requirepass "kPPwrcKohbBwbta2eL49LjqAmr5D6sdG"
+    environment:
+      - REDIS_REPLICATION_MODE=master
+volumes:
+  eldercare_data:
