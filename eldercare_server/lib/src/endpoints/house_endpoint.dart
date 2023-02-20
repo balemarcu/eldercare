@@ -7,6 +7,10 @@ class HouseEndpoint extends Endpoint {
     return await House.findById(session, id);
   }
 
+  Future<List<House>> getHouses(Session session) async {
+    return await House.find(session);
+  }
+
   Future<bool> addHouse(Session session, House house) async {
     await House.insert(session, house);
     return true;

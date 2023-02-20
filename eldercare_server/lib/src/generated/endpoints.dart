@@ -87,6 +87,15 @@ class Endpoints extends _i1.EndpointDispatch {
             params['id'],
           ),
         ),
+        'getHouses': _i1.MethodConnector(
+          name: 'getHouses',
+          params: {},
+          call: (
+            _i1.Session session,
+            Map<String, dynamic> params,
+          ) async =>
+              (endpoints['house'] as _i4.HouseEndpoint).getHouses(session),
+        ),
         'addHouse': _i1.MethodConnector(
           name: 'addHouse',
           params: {

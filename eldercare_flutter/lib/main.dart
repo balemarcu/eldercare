@@ -1,8 +1,10 @@
 import 'package:eldercare_client/eldercare_client.dart';
 import 'package:eldercare_flutter/features/di/locator.dart';
 import 'package:eldercare_flutter/features/google_sign_in/presentation/login_page.dart';
-import 'package:eldercare_flutter/features/network/network_setup.dart';
+import 'package:eldercare_flutter/features/houses/presentation/houses_page.dart';
+import 'package:eldercare_flutter/core/network/network_setup.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:serverpod_flutter/serverpod_flutter.dart';
 
 import 'features/google_sign_in/data/google_auth_api.dart';
@@ -15,12 +17,31 @@ import 'features/google_sign_in/data/google_auth_api.dart';
 // var client = Client('http://localhost:8080/')
 //   ..connectivityMonitor = FlutterConnectivityMonitor();
 
+class Logger extends ProviderObserver {
+  @override
+  void didUpdateProvider(
+    ProviderBase<Object?> provider,
+    Object? previousValue,
+    Object? newValue,
+    ProviderContainer container,
+  ) {
+    print('''
+{
+  "provider": "${provider.name ?? provider.runtimeType}",
+  "newValue": "$newValue"
+}''');
+  }
+}
+
 void main() async {
+  print('main app running');
   WidgetsFlutterBinding.ensureInitialized();
   //configure getIt 
   configureDependecies();
   await sessionManager.initialize();
-  runApp(const MyApp());
+  runApp(ProviderScope(observers: [Logger()],
+    child: MyApp(),
+  ));
 }
 
 
@@ -34,7 +55,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const LoginPage(),
+      home: HousesWidget(),
     );
   }
 }

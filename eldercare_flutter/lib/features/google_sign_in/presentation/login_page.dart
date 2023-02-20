@@ -1,3 +1,4 @@
+import 'package:eldercare_flutter/features/houses/presentation/houses_page.dart';
 import 'package:eldercare_flutter/main.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -25,7 +26,7 @@ class LoginPage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => Home(),
+                      builder: (context) => HousesWidget(),
                     ),
                   )
                 },
@@ -43,7 +44,7 @@ class LoginPage extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) =>
-                          const Home(),
+                          HousesWidget(),
                     ),
                   )
                 },

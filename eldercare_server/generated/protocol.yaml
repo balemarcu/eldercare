@@ -3,4 +3,5 @@ example:
   - hello:
 house:
   - getHouse:
+  - getHouses:
   - addHouse:

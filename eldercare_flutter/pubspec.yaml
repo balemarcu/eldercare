@@ -37,6 +37,12 @@ dependencies:
   go_router: ^6.0.6
   injectable: ^2.1.0
   get_it: ^7.2.0
+  flutter_riverpod: ^2.2.0
+  drift: ^2.5.0
+  sqlite3_flutter_libs: ^0.5.0
+  path_provider: ^2.0.0
+  path: ^1.8.2
+  riverpod_annotation: ^1.2.1
 
 dev_dependencies:
   flutter_lints: ^2.0.1
@@ -44,7 +50,9 @@ dev_dependencies:
     sdk: flutter
   
   injectable_generator:
-  build_runner:
+  build_runner: ^2.3.3
+  drift_dev: ^2.5.2
+  riverpod_generator:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

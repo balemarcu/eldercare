@@ -46,6 +46,13 @@ class _EndpointHouse extends _i1.EndpointRef {
         {'id': id},
       );
 
+  _i2.Future<List<_i3.House>> getHouses() =>
+      caller.callServerEndpoint<List<_i3.House>>(
+        'house',
+        'getHouses',
+        {},
+      );
+
   _i2.Future<bool> addHouse(_i3.House house) => caller.callServerEndpoint<bool>(
         'house',
         'addHouse',
